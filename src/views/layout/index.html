@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="dark">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>{{ title }}</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" media="all" href="/public/styles/style.css">
+  </head>
+  <body class="flex flex-col h-screen bg-blue-100">
+
+    {% include "layout/header.html" %}
+    
+    <div class="mx-auto grow bg-white dark:bg-black w-full">
+      <div class="flex flex-row flex-wrap py-4">
+        <aside class="w-full sm:w-1/4 md:w-1/5 pl-2">
+          <div class="sticky top-0 w-full">
+              <!-- navigation -->
+              <ul class="flex flex-col overflow-y-scroll">
+                {% include "layout/navbuttons.html" %}
+              </ul>
+          </div>
+        </aside>
+        <main role="main" class="w-full sm:w-2/3 md:w-3/4 pt-1 px-2">
+          <!-- main content area -->
+          {% block main %}
+
+            {% block header %}
+
+              Default Header Content
+
+            {% endblock %}
+
+            Default Main Content
+
+          {% endblock %}
+        </main>
+      </div>
+    </div>
+
+    {% include "layout/footer.html" %}
+
+  <script src="/public/js/script.js"></script>
+  </body>
+</html>
